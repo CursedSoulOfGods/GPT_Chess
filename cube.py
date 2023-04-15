@@ -23,8 +23,8 @@ WHITE = (255, 255, 255)
 # Draw the points on the screen
 for x in range(8):
     for y in range(8):
-        pygame.draw.circle(screen, WHITE, [int(plane_position[0] + (x - 3.5) * point_spacing), int(plane_position[1] + (y - 3.5) * point_spacing)], point_size)
-
+        rect = pygame.Rect(int(plane_position[0] + (x - 3.5) * point_spacing), int(plane_position[1] + (y - 3.5) * point_spacing), point_size, point_size)
+        pygame.draw.rect(screen, WHITE, rect)
 # Update the screen
 pygame.display.flip()
 
