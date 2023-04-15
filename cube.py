@@ -30,6 +30,9 @@ for x in range(8):
             rect_color = WHITE
         rect = pygame.Rect(int(plane_position[0] + (x - 3.5) * point_spacing), int(plane_position[1] + (y - 3.5) * point_spacing), point_size, point_size)
         pygame.draw.rect(screen, rect_color, rect)
+        if y == 1 or y == 6:
+            circle_rect = pygame.Rect(int(plane_position[0] + (x - 3.5) * point_spacing - point_size/2), int(plane_position[1] + (y - 3.5) * point_spacing - point_size/2), point_size, point_size)
+            pygame.draw.circle(screen, RED, circle_rect.center, int(point_size/2))
 
 # Update the screen
 pygame.display.flip()
