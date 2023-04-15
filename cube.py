@@ -36,8 +36,8 @@ for x in range(8):
         if y == 1 or y == 6:
             circle_rect = pygame.Rect(int(plane_position[0] + (x - 3.5) * point_spacing - point_size/50), int(plane_position[1] + (y - 3.5) * point_spacing - point_size/50), point_size, point_size)
             circle_center = circle_rect.center
-            pygame.draw.circle(screen, BLUE, circle_rect.center, int(point_size/3))
-            circle_positions.append(circle_center)
+            circle_draw = pygame.draw.circle(screen, BLUE, circle_rect.center, int(point_size/3))
+            circle_positions.append(circle_draw)
 
 # Update the screen
 pygame.display.flip()
@@ -55,7 +55,7 @@ while running:
             print("Got Mouse Position")
             # Check if the mouse clicked on a circle
             for i, circle_pos in enumerate(circle_positions):
-                print("Moving Circle")
+                print("Circle Clicked")
                 if pygame.Rect(circle_pos[0] - point_size/2, circle_pos[1] - point_size/2, point_size, point_size).collidepoint(mouse_pos):
                     selected_circle = i
                     break
@@ -63,9 +63,11 @@ while running:
             selected_circle = None
         elif event.type == pygame.MOUSEMOTION:
             # Check if a circle is currently being dragged
+            print("Circle Being Dragged")
             if selected_circle is not None:
                 circle_pos = circle_positions[selected_circle]
                 # Move the circle to the new mouse position
+                print("Making New Circle")
                 circle_positions[selected_circle] = (circle_pos[0] + event.rel[0], circle_pos[1] + event.rel[1])
                 # Redraw the screen
                 screen.fill(WHITE)
@@ -82,5 +84,6 @@ while running:
                             circle_center = circle_rect.center
                             pygame.draw.circle(screen, BLUE, circle_rect.center, int(point_size/3))
                             circle_positions.append(circle_center)
+                            print("Circle Drawn")
 # Quit the game
 pygame.quit()
