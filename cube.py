@@ -1,4 +1,28 @@
-(255, 165, 0)
+import pygame
+from pygame.locals import *
+import math
+
+pygame.init()
+
+# Set the size of the window
+size = (800, 800)
+screen = pygame.display.set_mode(size)
+
+# Set the caption of the window
+pygame.display.set_caption("8x8x8 Cube Simulation")
+
+# Define the size of the cube
+cube_size = 100
+
+# Define the position of the cube
+cube_position = [size[0]/2, size[1]/2]
+
+# Define the colors of the cube faces
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
+ORANGE = (255, 165, 0)
 PURPLE = (128, 0, 128)
 
 # Define the vertices of the cube
